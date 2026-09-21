@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CIAO ENERGY - 3D Experience</title>
+  <link rel="stylesheet" href="style.css">
+  
+  <!-- 100% Local Offline Scripts (No CDN dependency) -->
+  <script src="assets/js/three.min.js"></script>
+  <script src="assets/js/GLTFLoader.classic.js"></script>
+  <script src="assets/js/gsap.min.js"></script>
+</head>
+<body>
+
+  <!-- Background Ambient Gradient Layer -->
+  <div class="ambient-background" id="ambient-bg"></div>
+  <div class="grid-overlay"></div>
+
+  <!-- WebGL 3D Canvas -->
+  <canvas id="webgl-canvas"></canvas>
+
+  <!-- Preloader Screen -->
+  <div class="loader-overlay" id="loader">
+    <div class="loader-spinner"></div>
+    <div class="loader-text">INITIALIZING 3D STAGE...</div>
+  </div>
+
+  <!-- HUD Interface Layer -->
+  <div class="hud-container">
+
+    <!-- Top Navigation -->
+    <header class="navbar">
+      <div class="nav-left"></div>
+
+      <div class="brand-logo">
+        CIAO ENERGY
+        <span class="brand-badge">PROTOTYPE</span>
+      </div>
+
+      <div class="nav-right">
+        <button class="menu-btn" id="btn-menu">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor">
+            <circle cx="4" cy="4" r="3"/>
+            <circle cx="12" cy="4" r="3"/>
+            <circle cx="20" cy="4" r="3"/>
+            <circle cx="4" cy="12" r="3"/>
+            <circle cx="12" cy="12" r="3"/>
+            <circle cx="20" cy="12" r="3"/>
+            <circle cx="4" cy="20" r="3"/>
+            <circle cx="12" cy="20" r="3"/>
+            <circle cx="20" cy="20" r="3"/>
+          </svg>
+          MENU
+        </button>
+        <button class="action-btn" id="btn-action">COMMANDER</button>
+      </div>
+    </header>
+
+    <!-- Center Navigation Chevrons -->
+    <div class="carousel-nav-arrows">
+      <button class="nav-arrow prev" id="arrow-prev" title="Previous Flavor">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+          <polyline points="15 18 9 12 15 6"></polyline>
+        </svg>
+      </button>
+      <button class="nav-arrow next" id="arrow-next" title="Next Flavor">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+          <polyline points="9 18 15 12 9 6"></polyline>
+        </svg>
+      </button>
+    </div>
+
+    <!-- Bottom Flavor Details & Slider -->
+    <footer class="flavor-hud">
+      <h1 class="flavor-title" id="flavor-name">DOUBLE LITCHI</h1>
+
+      <div class="flavor-tags">
+        <span class="tag-badge">4g SUCRE DE CANNE</span>
+        <span class="tag-badge">SANS TAURINE</span>
+        <span class="tag-badge">80mg CAFÉINE NATURELLE</span>
+        <span class="tag-badge">100% VÉGÉTAL</span>
+      </div>
+
+      <!-- Scrubber Track & Dots -->
+      <div class="carousel-progress-wrap">
+        <div class="progress-track" id="progress-track">
+          <div class="progress-thumb" id="progress-thumb"></div>
+        </div>
+
+        <div class="flavor-pills" id="flavor-dots">
+          <!-- Dynamically populated flavor indicator dots -->
+        </div>
+
+        <div class="scroll-hint">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M7 13l5 5 5-5M7 6l5 5 5-5"/>
+          </svg>
+          DRAG OR SWIPE TO EXPLORE
+        </div>
+      </div>
+    </footer>
+
+  </div>
+
+  <!-- Audio elements -->
+  <audio id="sfx-swoosh" preload="auto" src="assets/audio/swoosh.mp3"></audio>
+  <audio id="sfx-click" preload="auto" src="assets/audio/click.mp3"></audio>
+
+  <!-- Application Logic (Standard Script, runs reliably anywhere) -->
+  <script src="app.js"></script>
+</body>
+</html>
